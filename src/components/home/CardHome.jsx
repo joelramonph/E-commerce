@@ -1,9 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import "/src/App.css"
 const CardHome = ({ product }) => {
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
   const handleClick = () => {
     navigate(`/product/${product.id}`)
   }
@@ -17,7 +17,7 @@ const CardHome = ({ product }) => {
         <h3 className='card__home-name'>{product.title}</h3>
         <section className='card__home-price'>
         <h4 className='card__home__price-label'>Price</h4>
-        <span className='card__home__price-value'>{product.price}</span>
+        <span className='card__home__price-value'>$ {product.price}</span>
 
         </section>
         <button className='card__home-btn'><i className="fa-solid fa-cart-plus"></i></button>

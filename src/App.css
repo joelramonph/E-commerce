@@ -1,5 +1,91 @@
+:root{
+    --border-color-card: #dcd9d9;
+    --primary-color: #f85555;
+    --gray: #c7c7c7;
+}
+
+/*Reset*/
+
+
 .active-link {
     background-color: red;
     color: white;
     font-size: 30px;
 }
+
+.home__container-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+   
+    
+}
+
+.card__home{
+    border: 1px solid #dcd9d9;
+    border-radius: 8px;
+    width: 300px;
+    height: 450px;
+    margin: auto;
+    margin-top: 3em;
+    margin-bottom: 3em ;
+
+    
+    
+}
+
+.card__home-header{
+    
+    height: 65% ;
+    padding: 2em;
+  
+}
+    
+    .card__home-img{
+       height: 80% ;
+        width: 100%;
+        max-width: 250px;
+        object-fit: contain;
+        margin: auto;
+    
+    
+}
+
+.card__home-body{
+    position: relative;
+    border-top: 1px solid var(--border-color-card) ;
+    padding: 20px 20px 30px 20px;
+}
+
+.card__home-name{
+    margin: 0 0 20px 10px;
+}
+
+.card__home-price{
+    display: flex;
+    flex-direction: column;
+}
+
+.card__home__price-label{
+    color: var(--gray);
+}
+
+.card__home__price-value{
+    margin: 0 0 0 10px;
+    font-size: 19px;
+}
+
+.card__home-btn{
+    position: absolute;
+    top: 70px;
+    left: 220px;
+    font-size: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: none;
+    padding: 14px;
+    font-size: 20px;
+    color: white;
+}
+
