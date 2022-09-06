@@ -11,7 +11,7 @@
 }
 
 .header__logo{
-    width: 100%;
+    
     font-size: 24px;
     padding: 14px 50px 14px 20px;
     color: #f85555;
@@ -44,6 +44,43 @@
     
     
 }
+
+/*Search*/
+
+.search__container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    margin-top: 2em;
+}
+
+.search__text {
+    display: inline-block;
+   padding: 10px 10px;
+   font-size: 1rem;
+   border: none;
+   
+}
+
+.search__label{
+    background-color: #f85555;
+    padding: 20px 20px;
+   
+}
+
+.fa-magnifying-glass{
+    color: white;
+}
+
+
+
+
+/*.search__text input[type=text], select{
+  padding: 10px 10px;
+  font-size: 1.2rem;
+}*/
 
 @media (min-width: 900px ) {
     .header{
