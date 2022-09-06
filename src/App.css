@@ -13,6 +13,8 @@
     font-size: 30px;
 }
 
+/*Card Home*/
+
 .home__container-card{
     display: flex;
     flex-wrap: wrap;
