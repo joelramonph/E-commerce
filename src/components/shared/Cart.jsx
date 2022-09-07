@@ -50,6 +50,7 @@ const handleCheckout = () => {
          <ProductCardInfo 
            key={product.id}
            product={product}
+           getAllProductsCart={getAllProductsCart}
          />
         ))
       }

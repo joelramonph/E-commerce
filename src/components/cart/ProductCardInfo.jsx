@@ -1,6 +1,17 @@
+import axios from 'axios'
 import React from 'react'
+import getConfig from '../../utils/getConfig'
 
-const ProductCardInfo = ({product}) => {
+
+const ProductCardInfo = ({product, getAllProductsCart}) => {
+
+const handleDeleteProduct = () => {
+  const URL = `https://ecommerce-api-react.herokuapp.com/api/v1/cart/${product.id}`
+  axios.delete(URL, getConfig())
+  .then(() => getAllProductsCart() )
+  .catch(err => console.log(err))
+}
+
   return (
 
     <article className='cart__item'>
@@ -11,7 +22,7 @@ const ProductCardInfo = ({product}) => {
       
         </header>
 
-        <i className="fa-solid fa-trash"></i>
+        <i onClick={handleDeleteProduct} className="cart__trash fa-solid fa-trash"></i>
 
         <span className='cart__quantity'>{product.productsInCart.quantity}</span>
         <footer className='cart__footer'>
