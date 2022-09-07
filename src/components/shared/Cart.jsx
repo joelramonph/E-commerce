@@ -8,16 +8,37 @@ const Cart = () => {
 
   const [cartProducts, setCardProducts] = useState();
 
-useEffect(() => {
+  const getAllProductsCart = () => {
 
-  const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/cart'
-  axios.get(URL, getConfig())
-  .then(res => setCardProducts(res.data.data.cart.products))
-  .catch(err => console.log(err))
+    const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/cart'
+    axios.get(URL, getConfig())
+    .then(res => setCardProducts(res.data.data.cart.products))
+    .catch(err => setCardProducts())
+
+  }
+
+useEffect(() => {
+  getAllProductsCart()
 }, [])
 
-console.log(cartProducts)
 
+const handleCheckout = () => {
+  const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/purchases'
+  const obj = {
+    street: "Green St. 1456",
+    colony: "Southwest",
+    zipCode: 12345,
+    city: "USA",
+    references: "Some references"
+  }
+  axios.post(URL,obj, getConfig())
+  .then(res => {
+    console.log(res.data)
+    getAllProductsCart()
+  })
+
+  .catch(err => console.log(err))
+}
 
 
   return ( 
@@ -38,7 +59,7 @@ console.log(cartProducts)
     <footer className='cart__footer'>
       <span className='cart__total-global-label'>Total:</span>
       <p className='cart__total-global-label-value'>1350</p>
-      <button className='cart__btn'>Checkout</button>
+      <button onClick={handleCheckout} className='cart__btn'>Checkout</button>
     </footer>
   </section>
    
