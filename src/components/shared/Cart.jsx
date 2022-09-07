@@ -2,6 +2,7 @@ import React from 'react'
 import ProductCardInfo from '../cart/ProductCardInfo'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import getConfig from '../../utils/getConfig'
 
 const Cart = () => {
 
@@ -9,16 +10,8 @@ const Cart = () => {
 
 useEffect(() => {
 
-  const config = {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-
-      
-    }
-  }
-
   const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/cart'
-  axios.get(URL, config)
+  axios.get(URL, getConfig())
   .then(res => setCardProducts(res.data))
   .catch(err => console.log(err))
 }, [])
