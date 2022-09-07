@@ -12,7 +12,7 @@ useEffect(() => {
 
   const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/cart'
   axios.get(URL, getConfig())
-  .then(res => setCardProducts(res.data))
+  .then(res => setCardProducts(res.data.data.cart.products))
   .catch(err => console.log(err))
 }, [])
 
@@ -23,7 +23,17 @@ console.log(cartProducts)
   return ( 
   <section className='cart'>
     <h2 className='cart__title'>Cart</h2>
-    <ProductCardInfo />
+    <div className='cart__container-item'>
+      {
+        cartProducts?.map(product => (
+         <ProductCardInfo 
+           key={product.id}
+           product={product}
+         />
+        ))
+      }
+    </div>
+
     <hr className='cart__hr' />
     <footer className='cart__footer'>
       <span className='cart__total-global-label'>Total:</span>
